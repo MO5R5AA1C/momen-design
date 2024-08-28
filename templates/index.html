@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momen Tarek Media Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            text-align: center;
+            background-color: #000;
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            overflow: auto;
+        }
+
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        h1 {
+            font-size: 4em;
+            color: #f39c12;
+            background: linear-gradient(45deg, #ff6600, #ff0000, #ff6600);
+            background-size: 400% 400%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 4s ease infinite, flicker 1.5s infinite;
+            margin: 0;
+            padding: 20px;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .description {
+            font-size: 1.2em;
+            color: #fff;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .discord-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #fff;
+        }
+
+        .discord-info img {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+            object-fit: cover;
+        }
+
+        .gallery-section {
+            margin: 20px;
+        }
+
+        .gallery-section h2 {
+            color: #fff;
+            border-bottom: 2px solid #f39c12;
+            padding-bottom: 10px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .gallery img {
+            border: 2px solid #fff;
+            width: 300px;
+            height: auto;
+            cursor: pointer; /* لتغيير المؤشر عند المرور على الصورة */
+            transition: transform 0.2s; /* تأثير التحجيم */
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05); /* تكبير الصورة قليلاً عند المرور عليها */
+        }
+
+        /* Style for the modal */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 80%;
+            margin: auto;
+        }
+
+        .modal img {
+            width: 100%; /* Full width of the modal */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #bbb;
+        }
+
+        .gallery iframe {
+            border: 2px solid #fff;
+            width: 560px;
+            height: 315px;
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+    </style>
+</head>
+<body>
+    <!-- Add the background video -->
+    <video class="background-video" autoplay loop muted>
+        <source src="https://www.pexels.com/video/5058214/download/" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <h1>Momen Tarek</h1>
+    <div class="description">
+        لطلب التصاميم التواصل مع حساب
+        <div style="font-size: 2em; display: inline-block; animation: bounce 2s infinite;">&#9660;&#9660;</div>
+    </div>
+    <div class="discord-info">
+        <img src="https://media.discordapp.net/attachments/1031970632658858015/1277823908103323689/pngegg.png?ex=66cf3a80&is=66cde900&hm=c6ba09058d4a198f7cac5b559681b6d6366796463a18b26a6e56c5031a62f4cf&=&format=webp&quality=lossless" alt="Discord Logo">
+        <div>
+            <div>Discord:</div>
+            <div>momen.evil</div>
+        </div>
+        <a href="https://discord.com/users/725885877770911754" target="_blank">اضغط للتواصل</a>
+    </div>
+
+    <!-- Section for Images -->
+    <div class="gallery-section">
+        <h2>Image Design</h2>
+        <div class="gallery">
+            <!-- Image Links -->
+            <img src="https://media.discordapp.net/attachments/1031970632658858015/1276966565128048722/FB_IMG_8580859686023243617.jpg?ex=66cf67ca&is=66ce164a&hm=68b14963a2195ec3d31db3c8dfcd6603839a198fef0ad1b9e3f1172cac5f22e1&=&format=webp&width=708&height=236" alt="Image 1" onclick="openModal(this)">
+            <img src="https://media.discordapp.net/attachments/1031970632658858015/1276967217094856734/FB_IMG_5798390976851520424.jpg?ex=66cf6865&is=66ce16e5&hm=84d22f49b4d309de4f1608112761ae990610b9d24c369dd6f4eb0c0b2caf4958&=&format=webp&width=708&height=351" alt="Image 2" onclick="openModal(this)">
+            <img src="https://media.discordapp.net/attachments/1031970632658858015/1276967488072192051/FB_IMG_6397814251595094565.jpg?ex=66cf68a6&is=66ce1726&hm=8bb2a66b8c537f5af835e493210703f0bd3394bac8ea3083268f68aeb343d2e9&=&format=webp&width=708&height=235" alt="Image 3" onclick="openModal(this)">
+            <img src="https://media.discordapp.net/attachments/1031970632658858015/1278156676805034074/photo_2024-08-27_17-54-18.jpg?ex=66cfc7aa&is=66ce762a&hm=5a3f67eebb866e8649340dd1f448bc278e447a0be5cf1202f99340b3da9522ec&=&format=webp&width=708&height=382" alt="Image 4" onclick="openModal(this)">
+            <img src="https://media.discordapp.net/attachments/1249861722517405757/1278176999386382447/Sans_titre_7_20230625234054.png?ex=66cfda98&is=66ce8918&hm=9c87b75b60759a643ce02f08bdc0f5d0b361f5131e38a9824722e5cf3ca7ceaf&=&format=webp&quality=lossless&width=708&height=302" alt="Image 4" onclick="openModal(this)">
+        </div>
+    </div>
+
+    <!-- Section for Videos -->
+    <div class="gallery-section">
+        <h2>Video Design</h2>
+        <div class="gallery">
+            <!-- YouTube Video Links -->
+            <iframe src="https://www.youtube.com/embed/8rV9QR8l4dw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/taXRewQ3hPM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/G6NhddCkysU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <script>
+        // Function to open the modal and display the clicked image
+        function openModal(img) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        // Close the modal when clicking outside of the modal content
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
